@@ -22,6 +22,10 @@ public class VDashBoard extends javax.swing.JFrame {
         btn_exit.setContentAreaFilled(false);
         btn_exit.setBorderPainted(false);
         
+        btn_log_out.setOpaque(false);
+        btn_log_out.setContentAreaFilled(false);
+        btn_log_out.setBorderPainted(false);
+        
 //        setExtendedState(VDashBoard.MAXIMIZED_BOTH);
 //        this.setUndecorated(true);
     }
@@ -37,8 +41,15 @@ public class VDashBoard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btn_exit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btn_log_out = new javax.swing.JButton();
+        btn_add_book = new javax.swing.JButton();
+        btn_add_member = new javax.swing.JButton();
+        btn_borrow_book = new javax.swing.JButton();
+        btn_return_book1 = new javax.swing.JButton();
+        btn_return_book = new javax.swing.JButton();
+        btn_return_book2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,7 +61,7 @@ public class VDashBoard extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 51));
 
-        btn_exit.setFont(new java.awt.Font("Montserrat SemiBold", 1, 36)); // NOI18N
+        btn_exit.setFont(new java.awt.Font("Montserrat SemiBold", 1, 24)); // NOI18N
         btn_exit.setForeground(new java.awt.Color(255, 0, 0));
         btn_exit.setText("X");
         btn_exit.setBorderPainted(false);
@@ -60,45 +71,101 @@ public class VDashBoard extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NIBM LIBRARY DASHBOARD");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 739, Short.MAX_VALUE)
-                .addComponent(btn_exit))
+                .addContainerGap(227, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157)
+                .addComponent(btn_exit)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_exit))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_exit)
+                    .addComponent(jLabel1))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setLayout(null);
 
-        jButton2.setText("jButton1");
+        btn_log_out.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_log_out.setForeground(new java.awt.Color(255, 255, 255));
+        btn_log_out.setText("Log Out");
+        btn_log_out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_log_outActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_log_out);
+        btn_log_out.setBounds(0, 330, 100, 25);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(407, Short.MAX_VALUE))
-        );
+        btn_add_book.setBackground(new java.awt.Color(153, 204, 255));
+        btn_add_book.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_add_book.setForeground(new java.awt.Color(0, 0, 0));
+        btn_add_book.setText("Add New Book");
+        btn_add_book.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btn_add_book.setBorderPainted(false);
+        jPanel2.add(btn_add_book);
+        btn_add_book.setBounds(0, 0, 150, 45);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 180, 450));
+        btn_add_member.setBackground(new java.awt.Color(153, 204, 255));
+        btn_add_member.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_add_member.setForeground(new java.awt.Color(0, 0, 0));
+        btn_add_member.setText("Add Member");
+        btn_add_member.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        btn_add_member.setBorderPainted(false);
+        jPanel2.add(btn_add_member);
+        btn_add_member.setBounds(0, 50, 150, 45);
+
+        btn_borrow_book.setBackground(new java.awt.Color(153, 204, 255));
+        btn_borrow_book.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_borrow_book.setForeground(new java.awt.Color(0, 0, 0));
+        btn_borrow_book.setText("Borrow Book");
+        btn_borrow_book.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_borrow_book.setBorderPainted(false);
+        jPanel2.add(btn_borrow_book);
+        btn_borrow_book.setBounds(0, 100, 150, 45);
+
+        btn_return_book1.setBackground(new java.awt.Color(153, 204, 255));
+        btn_return_book1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_return_book1.setForeground(new java.awt.Color(0, 0, 0));
+        btn_return_book1.setText("View Report");
+        btn_return_book1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_return_book1.setBorderPainted(false);
+        jPanel2.add(btn_return_book1);
+        btn_return_book1.setBounds(0, 250, 150, 45);
+
+        btn_return_book.setBackground(new java.awt.Color(153, 204, 255));
+        btn_return_book.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_return_book.setForeground(new java.awt.Color(0, 0, 0));
+        btn_return_book.setText("Return Book");
+        btn_return_book.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_return_book.setBorderPainted(false);
+        jPanel2.add(btn_return_book);
+        btn_return_book.setBounds(0, 150, 150, 45);
+
+        btn_return_book2.setBackground(new java.awt.Color(153, 204, 255));
+        btn_return_book2.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btn_return_book2.setForeground(new java.awt.Color(0, 0, 0));
+        btn_return_book2.setText("View Book Details");
+        btn_return_book2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_return_book2.setBorderPainted(false);
+        jPanel2.add(btn_return_book2);
+        btn_return_book2.setBounds(0, 200, 150, 45);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 150, 370));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -106,14 +173,14 @@ public class VDashBoard extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 470, 360));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 650, 370));
 
         pack();
         setLocationRelativeTo(null);
@@ -122,6 +189,12 @@ public class VDashBoard extends javax.swing.JFrame {
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_exitActionPerformed
+
+    private void btn_log_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_log_outActionPerformed
+        VLogin login = new VLogin();
+        login.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btn_log_outActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,8 +214,15 @@ public class VDashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_add_book;
+    private javax.swing.JButton btn_add_member;
+    private javax.swing.JButton btn_borrow_book;
     private javax.swing.JButton btn_exit;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_log_out;
+    private javax.swing.JButton btn_return_book;
+    private javax.swing.JButton btn_return_book1;
+    private javax.swing.JButton btn_return_book2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -18,6 +18,9 @@ public class VReturnBook extends javax.swing.JFrame {
      */
     public VReturnBook() {
         initComponents();
+        btn_exit.setOpaque(false);
+        btn_exit.setContentAreaFilled(false);
+        btn_exit.setBorderPainted(false);
     }
 
     /**
