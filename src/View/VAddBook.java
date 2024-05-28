@@ -67,7 +67,7 @@ public class VAddBook extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Genre");
 
-        cmb_genres.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "mystery", "Western", "romance", "science fiction", "fantasy", "horror", "suspense", "adventure and historical" }));
+        cmb_genres.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiction", "Science Fiction", "Classic", "Fantasy", "Adventure", "Historical Fiction", "Mystery", "Thriller", "Children's Literature", "Post-apocalyptic" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

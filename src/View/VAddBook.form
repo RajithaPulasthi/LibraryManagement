@@ -182,15 +182,17 @@
     <Component class="javax.swing.JComboBox" name="cmb_genres">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="8">
-            <StringItem index="0" value="mystery"/>
-            <StringItem index="1" value="Western"/>
-            <StringItem index="2" value="romance"/>
-            <StringItem index="3" value="science fiction"/>
-            <StringItem index="4" value="fantasy"/>
-            <StringItem index="5" value="horror"/>
-            <StringItem index="6" value="suspense"/>
-            <StringItem index="7" value="adventure and historical"/>
+          <StringArray count="10">
+            <StringItem index="0" value="Fiction"/>
+            <StringItem index="1" value="Science Fiction"/>
+            <StringItem index="2" value="Classic"/>
+            <StringItem index="3" value="Fantasy"/>
+            <StringItem index="4" value="Adventure"/>
+            <StringItem index="5" value="Historical Fiction"/>
+            <StringItem index="6" value="Mystery"/>
+            <StringItem index="7" value="Thriller"/>
+            <StringItem index="8" value="Children&apos;s Literature"/>
+            <StringItem index="9" value="Post-apocalyptic"/>
           </StringArray>
         </Property>
       </Properties>
