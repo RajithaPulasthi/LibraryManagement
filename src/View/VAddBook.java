@@ -52,6 +52,8 @@ public class VAddBook extends javax.swing.JFrame {
 
         jButton3.setText("Exit");
 
+        txt_book_id.setEnabled(false);
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Book ID");
 
@@ -146,12 +148,10 @@ public class VAddBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
-        int book_id = Integer.parseInt(txt_book_id.getText());
+        
         String book_name = txt_book_name.getText();
         String auther = txt_auther.getText();
-//        Date date1 = slct_year.getDate();
-//        SimpleDateFormat Datefm = new SimpleDateFormat("yyyy");
-//        String date2 = Datefm.format(date1);
+
         String genre = cmb_genres.getSelectedItem().toString();
         
         int year = slct_year.getYear();
@@ -160,7 +160,8 @@ public class VAddBook extends javax.swing.JFrame {
         String date2 = dateFormat.format(dt);
         int date3 = Integer.parseInt(date2);
         CAddBook mab = new CAddBook();
-        mab.addNewBook(book_id,book_name,auther,date3,genre);
+        String availability = "Available";
+        mab.addNewBook(book_name,auther,date3,genre,availability);
     }//GEN-LAST:event_btn_submitActionPerformed
 
     /**

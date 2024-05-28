@@ -1,19 +1,23 @@
+package Model;
+
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import Model.MDbConnector;
 import javax.swing.table.TableModel;
 
 
-package Model;
-ResultSet rst;
-public ResultSet getBookData(){
+public class MDashboard {
+    
+public DefaultTableModel getBookData(){
+            ResultSet rst = null;
+            DefaultTableModel model = new DefaultTableModel();
 try {
             int columnIndex;
             Statement st = MDbConnector.getDbConnection().createStatement();
             
-            rst = st.executeQuery("Select * From customer");
+            rst = st.executeQuery("Select Book_ID,Book_Name,Author,Availability From books");
 
-            DefaultTableModel model = new DefaultTableModel();
+            
             com.mysql.cj.jdbc.result.ResultSetMetaData metaData = (com.mysql.cj.jdbc.result.ResultSetMetaData) rst.getMetaData();
             int columnCount = metaData.getColumnCount();
 
@@ -27,19 +31,11 @@ try {
             rowData[i] = rst.getObject(i + 1);
             }
                 model.addRow(rowData);
-            }
-            TableModel rowData = null;
-            
-            tbl_books.setModel(model);
-            
-            st.close();
-            con.close();
-            
+            }            
             
         } catch (SQLException exe) {
             System.out.println("Exception " + exe.getMessage());
         }
+        return model;
     }
-public class MDashboard {
-    
 }

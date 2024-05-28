@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package View;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
 import javax.swing.UIManager;
-
+import Controller.CDashboard;
+import javax.swing.table.TableModel;
 /**
  *
  * @author Rajitha
@@ -25,6 +23,12 @@ public class VDashBoard extends javax.swing.JFrame {
         btn_log_out.setOpaque(false);
         btn_log_out.setContentAreaFilled(false);
         btn_log_out.setBorderPainted(false);
+        
+        
+        CDashboard dash = new CDashboard();
+        tbl_books.setModel((TableModel) dash.getBookData());
+            
+       
         
 //        setExtendedState(VDashBoard.MAXIMIZED_BOTH);
 //        this.setUndecorated(true);
