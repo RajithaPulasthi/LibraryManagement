@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Controller.CRegisterMember;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
 import javax.swing.UIManager;
@@ -45,6 +45,7 @@ public class VRegisterMember extends javax.swing.JFrame {
 
         jLabel3.setText("Name");
 
+        txt_member_id.setEditable(false);
         txt_member_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_member_idActionPerformed(evt);
@@ -52,6 +53,11 @@ public class VRegisterMember extends javax.swing.JFrame {
         });
 
         btn_submit.setText("Submit");
+        btn_submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_submitActionPerformed(evt);
+            }
+        });
 
         btn_clear.setText("Clear");
         btn_clear.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +165,18 @@ public class VRegisterMember extends javax.swing.JFrame {
     private void txt_member_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_member_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_member_idActionPerformed
+
+    private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
+        String name, address, email, phone;
+        
+        name=txt_name.getText();
+        address=txt_address.getText();
+        email=txt_email.getText();
+        phone=txt_phone_number.getText();
+        CRegisterMember crm = new CRegisterMember();
+        crm.registerMember(name, address, email, phone);
+        
+    }//GEN-LAST:event_btn_submitActionPerformed
 
     /**
      * @param args the command line arguments

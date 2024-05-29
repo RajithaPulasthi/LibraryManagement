@@ -61,7 +61,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="btn_clear" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-                                      <Component id="btn_search1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_submit" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="txt_book_id" min="-2" pref="71" max="-2" attributes="0"/>
@@ -98,7 +98,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btn_clear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_search1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_submit" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -141,6 +141,9 @@
             <Property name="text" type="java.lang.String" value="Search"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_searchActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_book_name">
           <Properties>
@@ -185,7 +188,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_search1">
+        <Component class="javax.swing.JButton" name="btn_submit">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="33" type="rgb"/>
@@ -199,6 +202,9 @@
             <Property name="text" type="java.lang.String" value="Submit"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_submitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_clear">
           <Properties>

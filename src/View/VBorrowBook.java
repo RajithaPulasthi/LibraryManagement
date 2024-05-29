@@ -4,10 +4,12 @@
  */
 package View;
 
+import Controller.CBorrowBook;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -16,20 +18,19 @@ import javax.swing.UIManager;
  */
 public class VBorrowBook extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VBorrowBook
-     */
+    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date today = new Date();           
+            String date1 = formatter.format(today);
+            
     public VBorrowBook() {
         initComponents();
         
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            Date today = new Date();           
-            String date1 = formatter.format(today);
+            
             lbl_date.setText("Book borrowing date : "+date1);
             
             btn_exit.setOpaque(false);
-        btn_exit.setContentAreaFilled(false);
-        btn_exit.setBorderPainted(false);
+            btn_exit.setContentAreaFilled(false);
+            btn_exit.setBorderPainted(false);
     }
 
     /**
@@ -49,7 +50,7 @@ public class VBorrowBook extends javax.swing.JFrame {
         lbl_date = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_member_id = new javax.swing.JTextField();
-        btn_search1 = new javax.swing.JButton();
+        btn_submit = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btn_exit = new javax.swing.JButton();
@@ -75,6 +76,11 @@ public class VBorrowBook extends javax.swing.JFrame {
         btn_search.setForeground(new java.awt.Color(0, 0, 0));
         btn_search.setText("Search");
         btn_search.setBorderPainted(false);
+        btn_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchActionPerformed(evt);
+            }
+        });
 
         txt_book_name.setBackground(new java.awt.Color(255, 255, 255));
         txt_book_name.setForeground(new java.awt.Color(0, 0, 0));
@@ -91,11 +97,16 @@ public class VBorrowBook extends javax.swing.JFrame {
         txt_member_id.setBackground(new java.awt.Color(255, 255, 255));
         txt_member_id.setForeground(new java.awt.Color(0, 0, 0));
 
-        btn_search1.setBackground(new java.awt.Color(51, 51, 255));
-        btn_search1.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        btn_search1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_search1.setText("Submit");
-        btn_search1.setBorderPainted(false);
+        btn_submit.setBackground(new java.awt.Color(51, 51, 255));
+        btn_submit.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        btn_submit.setForeground(new java.awt.Color(255, 255, 255));
+        btn_submit.setText("Submit");
+        btn_submit.setBorderPainted(false);
+        btn_submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_submitActionPerformed(evt);
+            }
+        });
 
         btn_clear.setBackground(new java.awt.Color(204, 204, 255));
         btn_clear.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
@@ -127,7 +138,7 @@ public class VBorrowBook extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(btn_clear)
                                     .addGap(185, 185, 185)
-                                    .addComponent(btn_search1))
+                                    .addComponent(btn_submit))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(txt_book_id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,7 +165,7 @@ public class VBorrowBook extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_clear)
-                    .addComponent(btn_search1))
+                    .addComponent(btn_submit))
                 .addGap(30, 30, 30))
         );
 
@@ -209,9 +220,34 @@ public class VBorrowBook extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_exitActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
+        int bookId = Integer.parseInt(txt_book_id.getText());
+        int memberId = Integer.parseInt(txt_member_id.getText());
+        String issuedDate = date1;
+        
+        CBorrowBook crm = new CBorrowBook();
+        crm.issueBook(bookId, memberId, issuedDate);
+    }//GEN-LAST:event_btn_submitActionPerformed
+
+    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
+         try {
+            int bookId = Integer.parseInt(txt_book_id.getText().trim());
+
+            CBorrowBook crm = new CBorrowBook();
+            String bookName = crm.getBookName(bookId);
+
+            if (bookName != null) {
+                txt_book_name.setText(bookName);
+            } else {
+                JOptionPane.showMessageDialog(null, "Enter a valid Book ID", "Error", JOptionPane.ERROR_MESSAGE);
+                txt_book_name.setText(""); // Clear the text field if book not found
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Enter a valid Book ID", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btn_searchActionPerformed
+
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(new FlatAtomOneDarkIJTheme());
@@ -229,7 +265,7 @@ public class VBorrowBook extends javax.swing.JFrame {
     private javax.swing.JButton btn_clear;
     private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_search;
-    private javax.swing.JButton btn_search1;
+    private javax.swing.JButton btn_submit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

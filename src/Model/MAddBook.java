@@ -9,7 +9,7 @@ public class MAddBook {
         try{
             
             Statement st=MDbConnector.getDbConnection().createStatement();
-            int row_count=st.executeUpdate("Insert into bookdetails values('"+Book_Name+"','"+Auther+"','"+Published_Year+"','"+Genre+"','"+Availability+"')");
+            int row_count=st.executeUpdate("Insert into books values('"+Book_Name+"','"+Auther+"','"+Published_Year+"','"+Genre+"','"+Availability+"')");
             if(row_count>0){
                JOptionPane.showMessageDialog(null, "successfully submitted", "Info", JOptionPane.INFORMATION_MESSAGE);
            }

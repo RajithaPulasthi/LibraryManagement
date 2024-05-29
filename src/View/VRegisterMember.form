@@ -140,6 +140,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_member_id">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_member_idActionPerformed"/>
       </Events>
@@ -150,6 +153,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_submitActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_clear">
       <Properties>
